@@ -4,7 +4,7 @@ import pytz
 
 app = Flask(__name__)
 
-# Function to get current time for each timezone
+# Function to get formatted time for each timezone
 def get_timezones():
     timezones = {
         "Dublin": "Europe/Dublin",
@@ -13,7 +13,7 @@ def get_timezones():
     }
     
     current_times = {
-        tz: datetime.now(pytz.timezone(zone)).strftime("%Y-%m-%d %H:%M:%S")
+        tz: datetime.now(pytz.timezone(zone)).strftime("%I:%M:%S %p")  # 12-hour format with AM/PM
         for tz, zone in timezones.items()
     }
     
