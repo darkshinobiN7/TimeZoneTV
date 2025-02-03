@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timezone Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+        .time-container {
+            font-size: 3rem;
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Current Times</h1>
+    
+    <div class="time-container">
+        <p><strong>Dublin:</strong> <span id="dublin">{{ times["Dublin"] }}</span></p>
+        <p><strong>PST:</strong> <span id="pst">{{ times["PST"] }}</span></p>
+        <p><strong>EST:</strong> <span id="est">{{ times["EST"] }}</span></p>
+    </div>
+
+    <script>
+        function updateTimes() {
+            fetch('/')
+                .then(response => response.text())
+                .then(html => {
+                    let parser = new DOMParser();
+                    let doc = parser.parseFromString(html, 'text/html');
+                    document.getElementById("dublin").innerText = doc.getElementById("dublin").innerText;
+                    document.getElementById("pst").innerText = doc.getElementById("pst").innerText;
+                    document.getElementById("est").innerText = doc.getElementById("est").innerText;
+                });
+        }
+        
+        setInterval(updateTimes, 1000);
+    </script>
+
+</body>
+</html>
