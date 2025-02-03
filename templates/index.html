@@ -6,25 +6,55 @@
     <title>Timezone Display</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+            font-family: "Arial", sans-serif;
             background-color: black;
             color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
         }
-        .time-container {
+
+        h1 {
             font-size: 3rem;
-            margin-top: 10%;
+            margin-bottom: 20px;
         }
+
+        .time-container {
+            font-size: 4rem;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .timezone {
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            text-align: left;
+        }
+
+        .timezone span {
+            color: #FFD700; /* Gold color for readability */
+        }
+
     </style>
 </head>
 <body>
 
-    <h1>Current Times</h1>
+    <h1>World Clock</h1>
     
     <div class="time-container">
-        <p><strong>Dublin:</strong> <span id="dublin">{{ times["Dublin"] }}</span></p>
-        <p><strong>PST:</strong> <span id="pst">{{ times["PST"] }}</span></p>
-        <p><strong>EST:</strong> <span id="est">{{ times["EST"] }}</span></p>
+        <div class="timezone"><strong>Dublin:</strong> <span id="dublin">{{ times["Dublin"] }}</span></div>
+        <div class="timezone"><strong>PST:</strong> <span id="pst">{{ times["PST"] }}</span></div>
+        <div class="timezone"><strong>EST:</strong> <span id="est">{{ times["EST"] }}</span></div>
     </div>
 
     <script>
