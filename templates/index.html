@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: "Arial", sans-serif;
-            background-color: black;
-            color: white;
+            background-color: #D3D3D3; /* Light grey background */
+            color: #4B0082; /* Dark purple text */
             text-align: center;
             display: flex;
             justify-content: center;
@@ -23,26 +23,35 @@
         }
 
         .time-container {
-            font-size: 4rem;
-            font-weight: bold;
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
         .timezone {
-            padding: 20px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
             display: flex;
             justify-content: space-between;
+            align-items: center;
             width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8); /* Slight transparency */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 2.5rem; /* Adjusted to prevent overflow */
+            font-weight: bold;
+        }
+
+        .timezone strong {
+            flex: 1;
             text-align: left;
         }
 
         .timezone span {
-            color: #FFD700; /* Gold color for readability */
+            flex: 1;
+            text-align: right;
+            color: #4B0082; /* Dark purple */
+            font-weight: bold;
+            white-space: nowrap; /* Prevents wrapping */
         }
 
     </style>
